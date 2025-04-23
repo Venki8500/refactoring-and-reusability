@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <script type="text/babel">
+        function Man() {
+            var [x, setX] = React.useState([
+                {
+                    teamname: 'Mumbai Indians',
+                    players: [
+                        'Rohit',
+                        'surya',
+                        'kishan',
+                        'bhumra',
+                        'david'
+                    ]
+                },
+                {
+                    teamname: 'Royal Challengers Bengaluru',
+                    players: [
+                        'Faf',
+                        'Virat',
+                        'DK',
+                        'Maxi',
+                        'Siraj'
+                    ]
+                },
+                {
+                    teamname: 'Sunrisers Hyderabad',
+                    players: [
+                        'Kane Williamson',
+                        'Manish',
+                        'Bhuvi',
+                        'Warner',
+                        'Karan'
+                    ]
+                },
+                {
+                    teamname: 'Chennai Super Kings',
+                    players: [
+                        'Dhoni',
+                        'Raina',
+                        'Jadeja',
+                        'Rayudu',
+                        'Ben Stokes'
+                    ]
+                }
+            ])
+
+            return (
+                <div >
+                    {
+                        x.map(function (l) {
+                            return <div style={{ border: "1px solid", height: "200px", marginTop: "30px" }}><h1>{l.teamname}</h1>
+                                <ul>{
+                                    l.players.map(function (d) {
+                                        return <li>{d}</li>
+
+                                    })
+                                }</ul>
+                            </div>
+                        })
+                    }
+                </div>
+            )
+
+        }
+
+        ReactDOM.render(<Man></Man>, document.getElementById("d1"))
+
+
+    </script>
+</body>
+
+</html>
