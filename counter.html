@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            function X(){
+                var [h,setH]=React.useState(0);
+            
+                function inc(){
+                    setH(h+1);
+                }
+                function dec(){
+                    setH(h-1);
+                }
+                function res(){
+                    setH(h=0)
+                }
+                return (
+                    <div>
+                    <center><h1>Counter:{h}</h1>
+                    <button onClick={()=>{inc()}}>increment</button>&ensp;
+                    
+                    <button  onClick={()=>{dec()}}>decrement</button>
+                    <button onClick={()=>{res()}}>reset</button>
+                </center>
+                    </div>
+                )
+            }
+
+            function Xyz(){
+               return(
+                <div>
+                <X intial={5}></X>
+                <X intial={8}></X>
+                <X intial={10}></X>
+                </div>
+               ) 
+            }
+
+            ReactDOM.render(<Xyz></Xyz>,document.getElementById("root"))
+
+        </script>
+    </body>
+</html>

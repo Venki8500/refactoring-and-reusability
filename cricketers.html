@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Fin() {
+            var [s, setS] = React.useState([
+                "Sachin Tendulkar",
+                "Virat Kohli",
+                "Rohit Sharma",
+                "MS Dhoni",
+                "Kapil Dev",
+                "Sourav Ganguly",
+                "Rahul Dravid",
+                "Anil Kumble",
+                "Javagal Srinath",
+                "Harbhajan Singh",
+                "Sunil Gavaskar",
+                "Yuvraj Singh",
+                "Zaheer Khan",
+                "Ravindra Jadeja",
+                "KL Rahul"
+            ]
+            )
+            var [f, setF] = React.useState([])
+
+            function ab(b, i) {
+                setF([...f, b])
+
+                s.splice(i, 1)
+                // console.log(s.splice(i,1))
+
+                // console.log(b)
+                // console.log(i)
+                console.log(f)
+            }
+
+            function cd(j, i) {
+                setS([...s, j])
+
+                f.splice(i, 1)
+            }
+
+
+            return (<div style={{ display: "flex" }}>
+                <div style={{ border: "1px solid blue", width: "230px", height: "500px", margin: "10px" }}>
+                    {
+                        s.map(function (a, i) {
+                            return <li style={{ border: "1px solid orange", width: "200px", height: "20px", margin: '10px', textAlign: "center" }} onClick={() => { ab(a, i) }}>{a}</li>
+                        })
+                    }
+                </div>
+
+                <div style={{ border: "1px solid green", width: "230px", height: "500px", margin: "10px" }}>
+                    {
+                        f.map(function (z, i) {
+                            return <li style={{ border: "1px solid red", width: "200px", height: "20px", margin: '10px', textAlign: "center" }} onClick={() => { cd(z, i) }}>{z}</li>
+                        })
+                    }
+                </div>
+            </div>
+            )
+
+        }
+
+        ReactDOM.render(<Fin></Fin>, document.getElementById("root"))
+
+    </script>
+</body>
+
+</html>
