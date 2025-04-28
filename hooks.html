@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           
+            function Ho({initial,a}){
+                var[x,setX]=React.useState(initial)
+                var[y,setY]=React.useState(initial)
+                function inc(){
+                    setX(x+a)
+                }
+                function dec(){
+                    setX(x-a)
+                }
+                function res(){
+                    setY(y+a)
+                }
+
+
+                // React.useEffect(function(){
+                //     alert("hie")
+                // })
+                // React.useEffect(function(){
+                //     alert("hello")
+                // },[])
+
+                React.useEffect(function(){   //it callss when the y is updated//
+                    alert("hello")
+                },[y])
+            
+                
+                return(
+                    <div>
+                        <h1>count:{x}</h1>
+                        <button onClick={()=>{inc()}}>increment</button>
+                        <button onClick={()=>{dec()}}>decrement</button>
+                        <button onClick={()=>{res()}}>reset</button>
+                        </div>
+                )
+            }
+
+        function Block(){
+            return <div>
+                <Ho initial={10} a={3} ></Ho>     //***initial is used to start the value at some particular value***//
+                                                    //** here a is used to update the setter function value to a partiuclar operation*//
+                                                  //**  we can goes through the props method which the function receives the data in a object format**//
+                <Ho initial={7} a={4}></Ho>
+                </div>
+        }
+
+        ReactDOM.render(<Block></Block>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
