@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+           
+            function Block({initial,a=1}){
+
+                set[x,setX]=React.useState(initial)
+                set[y,setY]=React.useState(initial)
+
+                function inc(){
+                    SetX(x+a)
+                }
+                
+            
+                
+                return(
+                    <div>
+                        <h1>count:{x}</h1>
+                      
+                        <button onClick={()=>{inc()}}>increment</button>
+                        <button onClick={()=>{dec()}}>decrement</button>
+                        
+                        </div>
+                )
+            }
+            function Ab(){
+                return(
+                    <div>
+                        <Ab initial={10}></Ab>
+                        </div>
+                )
+            }
+
+        
+
+        ReactDOM.render(<Ab/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
