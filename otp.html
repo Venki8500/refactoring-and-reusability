@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Ot() {
+
+            var [n, setN] = React.useState();
+
+            var oneRef = React.useRef()
+            var twoRef = React.useRef()
+            var threeRef = React.useRef()
+            var fourRef = React.useRef()
+            var fiveRef = React.useRef()
+            var zRef = React.useRef()
+
+
+            React.useEffect(function () {
+                oneRef.current.focus();
+            }, [])
+
+            function m(ev) {
+                if (ev.key == 'Backspace') {
+                    oneRef.current.focus();
+                }
+                else {
+                    twoRef.current.focus();
+                }
+
+            }
+            function x(ev) {
+                if (ev.key == 'Backspace') {
+                    oneRef.current.focus();
+                }
+                else {
+                    threeRef.current.focus()
+                }
+
+            }
+
+            function y(ev) {
+                if (ev.key == 'Backspace') {
+                    twoRef.current.focus();
+                }
+                else {
+                    fourRef.current.focus()
+                }
+
+            }
+
+            function k(ev) {
+                if (ev.key == 'Backspace') {
+                    threeRef.current.focus()
+                }
+                else {
+                    fiveRef.current.focus();
+
+                }
+
+            }
+
+            function fog() {
+                setN(n = <i>OTP verification successfully <i class="bi bi-patch-check-fill"></i></i>)
+            }
+
+
+
+            return (
+                <center><div style={{ width: "500px", height: "300px", marginTop: "10%", backgroundColor: '#dcd6f7', borderRadius: "10px", boxShadow: "3px 3px 3px 3px #8DA399" }}>
+                    <h1 style={{ color: '#363b4e', marginTop: '4%', fontSize: '2.5em', paddingTop: "20px" }}>OTP Verification</h1>
+                    <div style={{ width: "300px", height: "100px", marginTop: '35px', backgroundColor: "white", borderRadius: "8px", boxShadow: "3px 3px 3px 3px #363b4e" }}>
+                        <input type="number" min="0" max="9" style={{ width: "35px", height: "40px", marginTop: '30px', border: '0px solid #dcd6f7', fontSize: "1.5rem", textAlign: 'center', borderRadius: "5px", boxShadow: "0.5px 0.5px 0.5px 0.5px #363b4e" }} onKeyUp={() => { m(event) }} ref={oneRef} />
+                        <input type="number" min="0" max="9" style={{ width: "35px", height: "40px", marginLeft: '30px', border: '0px solid #dcd6f7', fontSize: "1.5rem", textAlign: 'center', borderRadius: "5px", boxShadow: "0.5px 0.5px 0.5px 0.5px #363b4e" }} onKeyUp={() => { x(event) }} ref={twoRef} />
+                        <input type="number" min="0" max="9" style={{ width: "35px", height: "40px", marginLeft: '30px', border: '0px solid #dcd6f7', fontSize: "1.5rem", textAlign: 'center', borderRadius: "5px", boxShadow: "0.5px 0.5px 0.5px 0.5px #363b4e" }} onKeyUp={() => { y(event) }} ref={threeRef} />
+                        <input type="number" min="0" max="9" style={{ width: "35px", height: "40px", marginLeft: '30px', border: '0px solid #dcd6f7', fontSize: "1.5rem", textAlign: 'center', borderRadius: "5px", boxShadow: "0.5px 0.5px 0.5px 0.5px #363b4e" }} onKeyUp={() => { k(event) }} ref={fourRef} />
+                    </div>
+
+                    <button style={{ marginTop: '30px', width: '115px', height: "31px", fontSize: "1rem", color: 'white', backgroundColor: "black", border: 'none', borderRadius: "4.5px" }} ref={fiveRef} onClick={() => { fog() }}>Verify OTP</button>
+
+                </div>
+                    <br />
+                    <br />
+                    <b style={{ fontSize: "1.2rem", color: "green", fontFamily: "cursive" }}>{n}</b>
+
+                </center>
+            )
+        }
+        ReactDOM.render(<Ot></Ot>, document.getElementById('root'))
+
+
+    </script>
+</body>
+
+</html>
