@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+           
+
+            function Parent(){
+                var aRef=React.useRef();
+                var bRef=React.useRef();
+                var cRef=React.useRef();
+
+                React.useEffect(function(){
+                aRef.current.focus();
+            },[])
+
+            function abc(e){
+                if(e.key==='Enter'){
+                    bRef.current.focus();
+                }
+            }
+
+
+                return (
+                    <div style={{border:"1px solid green",width:"40%",height:"200px",padding:"20px"}}>
+                        <input type="text" ref={aRef} onKeyUp={(ev)=>{abc(ev)}}/>
+                        <Child ref={[bRef,cRef]}></Child>
+                        <input type="text" ref={cRef} />
+                        </div>
+
+                )
+            }
+            var Child=React.forwardRef((props,refs)=>{
+
+                function abc(e){
+                if(e.key==='Enter'){
+                    refs[1].current.focus();
+                }
+            }
+                return (
+                    <div style={{border:"1px solid blue",width:"55%",height:"20px",padding:"40px",margin:"10px"}}>
+                        <input type="text" ref={refs[0]} onKeyUp={(ev)=>{abc(ev)}} />
+                        </div>
+
+                )
+            })
+            
+               
+            
+
+            ReactDOM.render(<Parent></Parent>,document.getElementById("root"))
+
+        </script>
+    </body>
+</html>
