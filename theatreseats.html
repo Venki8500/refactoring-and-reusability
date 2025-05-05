@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            function Cine(){
+
+                var [d,setD]=React.useState([{
+                    type:"A",
+                    A:[{
+                        seatno:1,
+                        price:300,
+                        status:false,
+                        row:'A'
+                    },
+                    {
+                        seatno:2,
+                        price:300,
+                        status:false,
+                        row:'A'
+                    },
+                    {
+                        seatno:3,
+                        price:300,
+                        status:false,
+                        row:'A'
+                    },
+                    {
+                        seatno:4,
+                        price:300,
+                        status:false,
+                        row:'A'
+                    },
+                    {
+                        seatno:5,
+                        price:300,
+                        status:false,
+                        row:'A'
+                    }
+                ]
+
+                },
+                {
+                    type:"B",
+                    A:[{
+                        seatno:1,
+                        price:200,
+                        status:false,
+                        row:'B'
+                    },
+                    {
+                        seatno:2,
+                        price:200,
+                        status:false,
+                        row:'B'
+                    },
+                    {
+                        seatno:3,
+                        price:200,
+                        status:false,
+                        row:'B'
+                    },
+                    {
+                        seatno:4,
+                        price:200,
+                        status:false,
+                        row:'B'
+                    },
+                    {
+                        seatno:5,
+                        price:200,
+                        status:false,
+                        row:'B'
+                    }
+
+                ]
+                },
+                {
+                    type:"C",
+                    A:[{
+                        seatno:1,
+                        price:100,
+                        status:false,
+                        row:'C'
+                    },
+                    {
+                        seatno:2,
+                        price:100,
+                        status:false,
+                        row:'C'
+                    },
+                    {
+                        seatno:3,
+                        price:100,
+                        status:false,
+                        row:'C' 
+                    },
+                    {
+                        seatno:4,
+                        price:100,
+                        status:false,
+                        row:'C'
+                    },
+                    {
+                        seatno:5,
+                        price:100,
+                        status:false,
+                        row:'C'
+                    }
+
+                ]
+                }
+
+            ])
+
+            function fb(w,q){
+               document.getElementById("d1").innerHTML= w+q+" "+"ticket selected";
+                // console.log(w)
+                // console.log(q)
+            }
+
+            return(
+                <div>
+                    <table cellspacing="5px" cellpadding="15px">
+                    <tbody>
+                               {
+                                d.map(function(a,i){
+                                    return <tr>
+                                        <tr>{a.type}</tr>
+
+                                        
+                                        <td>
+                                            {a.A.map(function(x,i){
+                                                return <td style={{border:"1px solid"}} onClick={()=>{fb(x.row,x.seatno)}}>{x.seatno}</td>
+                                            })}
+                                            </td>
+                                        </tr>
+                                })
+                               
+                               }
+                                </tbody>
+                        </table>
+                        <h1 id="d1"></h1>
+                    </div>
+            )
+
+       
+
+            }
+
+            ReactDOM.render(<Cine></Cine>,document.getElementById('root'))
+
+        </script>
+    </body>
+</html>
